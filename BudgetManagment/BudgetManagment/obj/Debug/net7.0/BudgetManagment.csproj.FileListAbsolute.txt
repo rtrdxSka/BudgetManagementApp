@@ -28,3 +28,43 @@ C:\Work\git\BudgetManagment\BudgetManagment\BudgetManagment\obj\Debug\net7.0\ref
 C:\Work\git\BudgetManagment\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.pdb
 C:\Work\git\BudgetManagment\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.genruntimeconfig.cache
 C:\Work\git\BudgetManagment\BudgetManagment\BudgetManagment\obj\Debug\net7.0\ref\BudgetManagment.dll
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\appsettings.json
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\BudgetManagment.staticwebassets.runtime.json
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\BudgetManagment.exe
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\BudgetManagment.deps.json
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\BudgetManagment.runtimeconfig.json
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\BudgetManagment.dll
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\BudgetManagment.pdb
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.csproj.AssemblyReference.cache
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.AssemblyInfoInputs.cache
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.AssemblyInfo.cs
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.csproj.CoreCompileInputs.cache
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.RazorAssemblyInfo.cache
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.RazorAssemblyInfo.cs
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.sourcelink.json
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\staticwebassets\msbuild.BudgetManagment.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\staticwebassets\msbuild.build.BudgetManagment.props
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.BudgetManagment.props
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.BudgetManagment.props
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\scopedcss\bundle\BudgetManagment.styles.css
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\scopedcss\projectbundle\BudgetManagment.bundle.scp.css
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.csproj.CopyComplete
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.dll
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\refint\BudgetManagment.dll
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.pdb
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.genruntimeconfig.cache
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\ref\BudgetManagment.dll
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\konstantin stoichkov\source\repos\BudgetManagementApp\BudgetManagment\BudgetManagment\obj\Debug\net7.0\BudgetManagment.MvcApplicationPartsAssemblyInfo.cs

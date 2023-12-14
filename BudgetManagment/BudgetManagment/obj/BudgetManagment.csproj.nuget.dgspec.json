@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Work\\git\\BudgetManagment\\BudgetManagment\\BudgetManagment\\BudgetManagment.csproj": {}
+    "C:\\Users\\konstantin stoichkov\\source\\repos\\BudgetManagementApp\\BudgetManagment\\BudgetManagment\\BudgetManagment.csproj": {}
   },
   "projects": {
-    "C:\\Work\\git\\BudgetManagment\\BudgetManagment\\BudgetManagment\\BudgetManagment.csproj": {
+    "C:\\Users\\konstantin stoichkov\\source\\repos\\BudgetManagementApp\\BudgetManagment\\BudgetManagment\\BudgetManagment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work\\git\\BudgetManagment\\BudgetManagment\\BudgetManagment\\BudgetManagment.csproj",
+        "projectUniqueName": "C:\\Users\\konstantin stoichkov\\source\\repos\\BudgetManagementApp\\BudgetManagment\\BudgetManagment\\BudgetManagment.csproj",
         "projectName": "BudgetManagment",
-        "projectPath": "C:\\Work\\git\\BudgetManagment\\BudgetManagment\\BudgetManagment\\BudgetManagment.csproj",
+        "projectPath": "C:\\Users\\konstantin stoichkov\\source\\repos\\BudgetManagementApp\\BudgetManagment\\BudgetManagment\\BudgetManagment.csproj",
         "packagesPath": "C:\\Users\\konstantin stoichkov\\.nuget\\packages\\",
-        "outputPath": "C:\\Work\\git\\BudgetManagment\\BudgetManagment\\BudgetManagment\\obj\\",
+        "outputPath": "C:\\Users\\konstantin stoichkov\\source\\repos\\BudgetManagementApp\\BudgetManagment\\BudgetManagment\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,15 +22,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -41,12 +41,26 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -68,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
