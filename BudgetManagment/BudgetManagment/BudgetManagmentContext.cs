@@ -1,39 +1,16 @@
-﻿using BudgetManagment.Models;
+﻿using BudgetManagment.DbModels;
+using BudgetManagment.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+namespace BudgetManagment;
 
-namespace BudgetManagment
+public class AppDbContext : DbContext
 {
-    public partial class BudgetManagmentContext : DbContext
+    public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options)
     {
-        public virtual DbSet<UserDetails> UserDetails { get; set; }
-
-        public BudgetManagmentContext(DbContextOptions<BudgetManagmentContext> options) : base(options)
-        {
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<UserDetails>(entity =>
-            {
-                //entity.ToTable("UserDetails");
-
-                entity.Property(e => e.Email)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Mobile)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Name)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Password)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-        }
     }
+
+    public DbSet<User> Users { get; set; }
+    public DbSet<Expense> Expenses { get; set; }
+    public DbSet<Income> Incomes { get; set; }
 }
