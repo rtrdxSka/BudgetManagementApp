@@ -17,7 +17,6 @@ import {
   InputAdornment,
   InputLabel,
   OutlinedInput,
-  TextField,
   Typography,
   useMediaQuery
 } from '@mui/material';
@@ -35,6 +34,7 @@ import { strengthColor, strengthIndicator } from 'utils/password-strength';
 // assets
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import axios from 'axios';
 
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
@@ -126,9 +126,10 @@ const FirebaseRegister = ({ ...others }) => {
 
       <Formik
         initialValues={{
-          email: '',
-          password: '',
-          submit: null
+          firstName: "string",
+          lastName: "string",
+          email: "string",
+          password: "string"
         }}
         validationSchema={Yup.object().shape({
           email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
@@ -139,6 +140,8 @@ const FirebaseRegister = ({ ...others }) => {
             if (scriptedRef.current) {
               setStatus({ success: true });
               setSubmitting(false);
+              const response = axios.post("http://localhost:5001/api/Auth/register",values);
+              console.log(`Resposne is ${await response}`)
             }
           } catch (err) {
             console.error(err);
@@ -154,26 +157,26 @@ const FirebaseRegister = ({ ...others }) => {
           <form noValidate onSubmit={handleSubmit} {...others}>
             <Grid container spacing={matchDownSM ? 0 : 2}>
               <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="First Name"
-                  margin="normal"
-                  name="fname"
-                  type="text"
-                  defaultValue=""
-                  sx={{ ...theme.typography.customInput }}
-                />
+              <OutlinedInput
+                id="outlined-adornment-firstname-register"
+                type="text"
+                value={values.firstName}
+                name="firstName"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                inputProps={{}}
+              />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Last Name"
-                  margin="normal"
-                  name="lname"
-                  type="text"
-                  defaultValue=""
-                  sx={{ ...theme.typography.customInput }}
-                />
+              <OutlinedInput
+                id="outlined-adornment-lastname-register"
+                type="text"
+                value={values.lastName}
+                name="lastName"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                inputProps={{}}
+              />
               </Grid>
             </Grid>
             <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{ ...theme.typography.customInput }}>

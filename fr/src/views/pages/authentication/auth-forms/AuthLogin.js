@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-
+import axios from "axios";
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
@@ -34,6 +34,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import Google from 'assets/images/icons/social-google.svg';
+import { useNavigate } from 'react-router';
 
 // ============================|| FIREBASE - LOGIN ||============================ //
 
@@ -43,6 +44,8 @@ const FirebaseLogin = ({ ...others }) => {
   const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
   const customization = useSelector((state) => state.customization);
   const [checked, setChecked] = useState(true);
+
+  const navigate = useNavigate();
 
   const googleHandler = async () => {
     console.error('Login');
@@ -120,9 +123,10 @@ const FirebaseLogin = ({ ...others }) => {
 
       <Formik
         initialValues={{
-          email: 'info@codedthemes.com',
-          password: '123456',
-          submit: null
+          firstName: "",
+          lastName: "",
+          email: "string",
+          password: "string"
         }}
         validationSchema={Yup.object().shape({
           email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
@@ -133,6 +137,15 @@ const FirebaseLogin = ({ ...others }) => {
             if (scriptedRef.current) {
               setStatus({ success: true });
               setSubmitting(false);
+              console.log(values)
+              const response = await axios.post("http://localhost:5001/api/Auth/login",values,{withCredentials: true});
+              const email = response.data.email;
+              const firstName = response.data.firstName;
+              const lastName = response.data.lastName;
+              localStorage.setItem("email",email)
+              localStorage.setItem("firstName",firstName)
+              localStorage.setItem("lastName",lastName)
+              navigate("/");
             }
           } catch (err) {
             console.error(err);
@@ -215,7 +228,7 @@ const FirebaseLogin = ({ ...others }) => {
 
             <Box sx={{ mt: 2 }}>
               <AnimateButton>
-                <Button disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="secondary">
+                <Button disableElevation disabled={isSubmitting} onSubmit={handleSubmit} fullWidth size="large" type="submit" variant="contained" color="secondary">
                   Sign in
                 </Button>
               </AnimateButton>
