@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // material-ui
 import { styled, useTheme } from '@mui/material/styles';
@@ -17,6 +17,10 @@ import GetAppTwoToneIcon from '@mui/icons-material/GetAppOutlined';
 import FileCopyTwoToneIcon from '@mui/icons-material/FileCopyOutlined';
 import PictureAsPdfTwoToneIcon from '@mui/icons-material/PictureAsPdfOutlined';
 import ArchiveTwoToneIcon from '@mui/icons-material/ArchiveOutlined';
+
+import axios from "axios";
+
+
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.dark,
@@ -56,7 +60,37 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 
 // ===========================|| DASHBOARD DEFAULT - EARNING CARD ||=========================== //
 
+
 const EarningCard = ({ isLoading }) => {
+    // Define what your initial state should be. For example:
+    const initialState = {
+      incomeData: null,
+      totalAmount: 0,
+      loading: true,
+      error: null
+    };
+  const [state, setState] = useState(initialState)
+  useEffect(()=>{
+    async function getResponse() {
+      try {
+        const responseIncome = await axios.get("http://localhost:5001/api/Expenses", {
+          params: {
+            email: localStorage.getItem("email"),
+            type: "income"
+          }
+        });
+        const total = responseIncome.data.reduce((acc, curr) => acc + Number(curr.amount), 0);
+        console.log(total)
+        setState({ incomeData: responseIncome.data, totalAmount: total, loading: false, error: null });
+      } catch (error) {
+        console.error('Error fetching income data', error);
+        setState({ incomeData: null, loading: false, error: error });
+      }
+    }
+    getResponse();
+  },[])
+
+
   const theme = useTheme();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -143,7 +177,7 @@ const EarningCard = ({ isLoading }) => {
               <Grid item>
                 <Grid container alignItems="center">
                   <Grid item>
-                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>$500.00</Typography>
+                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>{state.incomeData ? `$${state.totalAmount}` : "N/A"}</Typography>
                   </Grid>
                   <Grid item>
                     <Avatar
@@ -167,7 +201,7 @@ const EarningCard = ({ isLoading }) => {
                     color: theme.palette.secondary[200]
                   }}
                 >
-                  Total Earning
+                  Total Income
                 </Typography>
               </Grid>
             </Grid>

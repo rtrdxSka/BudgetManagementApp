@@ -25,6 +25,8 @@ builder.Services.AddCors(c =>
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+builder.Services.AddScoped<IExpensService, ExpenseService>();
+
 builder.Services.AddIdentityServices(builder.Configuration);
 
 builder.Services.AddJwtToken(builder.Configuration);

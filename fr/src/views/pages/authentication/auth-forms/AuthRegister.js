@@ -140,8 +140,9 @@ const FirebaseRegister = ({ ...others }) => {
             if (scriptedRef.current) {
               setStatus({ success: true });
               setSubmitting(false);
-              const response = axios.post("http://localhost:5001/api/Auth/register",values);
-              console.log(`Resposne is ${await response}`)
+              const response = await axios.post("http://localhost:5001/api/Auth/register",values);
+              console.log(`Resposne is ${response}`)
+              navigate("/");
             }
           } catch (err) {
             console.error(err);
