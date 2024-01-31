@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
 
 // project imports
-import EarningCard from './EarningCard';
-import TotalOrderLineChartCard from './TotalOrderLineChartCard';
-import TotalGrowthBarChart from './TotalGrowthBarChart';
 import { gridSpacing } from 'store/constant';
+import EarningCard from './EarningCard';
+import TotalGrowthBarChart from './TotalGrowthBarChart';
+import TotalOrderLineChartCard from './TotalOrderLineChartCard';
 
 
 // ==============================|| DEFAULT DASHBOARD ||============================== //
@@ -41,7 +41,7 @@ const Dashboard = () => {
       <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
           <Grid item xs={12} md={8}>
-            <TotalGrowthBarChart isLoading={isLoading} />
+            <TotalGrowthBarChart  />
           </Grid>
         </Grid>
       </Grid>

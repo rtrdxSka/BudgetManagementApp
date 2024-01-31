@@ -1,42 +1,201 @@
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 // material-ui
+import { Grid, Input, MenuItem, TextField, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { Grid, MenuItem, TextField, Typography } from '@mui/material';
 
 // third-party
 import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
 
 // project imports
-import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowthBarChart';
-import MainCard from 'ui-component/cards/MainCard';
 import { gridSpacing } from 'store/constant';
+import MainCard from 'ui-component/cards/MainCard';
+import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowthBarChart';
 
 // chart data
-import chartData from './chart-data/total-growth-bar-chart';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 const status = [
   {
-    value: 'today',
-    label: 'Today'
+    value: 'expense',
+    label: 'Expense'
   },
   {
-    value: 'month',
-    label: 'This Month'
-  },
-  {
-    value: 'year',
-    label: 'This Year'
+    value: 'income',
+    label: 'Income'
   }
 ];
 
+const months = [
+  {
+    value: '1',
+    label: 'January'
+  },
+  {
+    value: '2',
+    label: 'February'
+  },
+  {
+    value: '3',
+    label: 'March'
+  },
+  {
+    value: '4',
+    label: 'April'
+  },
+  {
+    value: '5',
+    label: 'May'
+  },
+  {
+    value: '6',
+    label: 'June'
+  },
+  {
+    value: '7',
+    label: 'July'
+  },
+  {
+    value: '8',
+    label: 'August'
+  },
+  {
+    value: '9',
+    label: 'September'
+  },
+  {
+    value: '10',
+    label: 'October'
+  },
+  {
+    value: '11',
+    label: 'November'
+  },
+  {
+    value: '12',
+    label: 'December'
+  }
+];
+
+const years = [
+  {
+    value: '2023',
+    label: '2023'
+  },
+  {
+    value: '2024',
+    label: '2024'
+  },
+  {
+    value: '2025',
+    label: '2025'
+  }
+];
 // ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
 
-const TotalGrowthBarChart = ({ isLoading }) => {
-  const [value, setValue] = useState('today');
+const TotalGrowthBarChart = () => {
+
+  const getChartData = async () => {
+    const response = await axios.get("http://localhost:5001/api/Expenses/data", {
+      params: {
+        email: localStorage.getItem("email"),
+      }
+    });
+    return response.data;
+  }
+  const {data: realChart, isLoading} = useQuery({
+    queryKey: ["realChart"], 
+    queryFn: getChartData
+  })
+
+  
+
+  const chartData = {
+    height: 480,
+    type: 'bar',
+    options: {
+      chart: {
+        id: 'bar-chart',
+        stacked: true,
+        toolbar: {
+          show: true
+        },
+        zoom: {
+          enabled: true
+        }
+      },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            legend: {
+              position: 'bottom',
+              offsetX: -10,
+              offsetY: 0
+            }
+          }
+        }
+      ],
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: '50%'
+        }
+      },
+      xaxis: {
+        type: 'category',
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      },
+      legend: {
+        show: true,
+        fontSize: '14px',
+        fontFamily: `'Roboto', sans-serif`,
+        position: 'bottom',
+        offsetX: 20,
+        labels: {
+          useSeriesColors: false
+        },
+        markers: {
+          width: 16,
+          height: 16,
+          radius: 5
+        },
+        itemMargin: {
+          horizontal: 15,
+          vertical: 8
+        }
+      },
+      fill: {
+        type: 'solid'
+      },
+      dataLabels: {
+        enabled: false
+      },
+      grid: {
+        show: true
+      }
+    },
+    series: realChart
+  };
+
+  // Update ApexCharts when chartData changes
+  useEffect(() => {
+    if (!isLoading && chartData) {
+      const updatedChartData = {
+        ...chartData,
+        series: chartData.series // Assuming 'chartData' from the server is structured correctly for the ApexChart
+      };
+      ApexCharts.exec('bar-chart', 'updateOptions', updatedChartData);
+    }
+  }, [chartData, isLoading]);
+
+  const [value, setValue] = useState('income');
+  const [month, setMonth] = useState('1');
+  const [year, setYear] = useState('2024');
   const theme = useTheme();
   const customization = useSelector((state) => state.customization);
 
@@ -50,6 +209,23 @@ const TotalGrowthBarChart = ({ isLoading }) => {
   const primaryDark = theme.palette.primary.dark;
   const secondaryMain = theme.palette.secondary.main;
   const secondaryLight = theme.palette.secondary.light;
+
+  
+
+  const getData = async () => {
+    const response = await axios.get("http://localhost:5001/api/Expenses", {
+      params: {
+        email: localStorage.getItem("email"),
+        type: value
+      }
+    });
+    return response.data;
+  }
+
+  const {data, refetch} = useQuery({
+    queryKey: ["budget"], 
+    queryFn: getData
+  })
 
   useEffect(() => {
     const newChartData = {
@@ -107,14 +283,30 @@ const TotalGrowthBarChart = ({ isLoading }) => {
                     </Grid>
                   </Grid>
                 </Grid>
-                <Grid item>
-                  <TextField id="standard-select-currency" select value={value} onChange={(e) => setValue(e.target.value)}>
+                <Grid item style = {{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+                  <TextField id="standard-select-currency" select value={value} onChange={(e) => {setValue(e.target.value);refetch();}}>
                     {status.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
                         {option.label}
                       </MenuItem>
                     ))}
                   </TextField>
+                  <TextField select value={month} onChange={(e) => {setMonth(e.target.value);refetch();}}>
+                    {months.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                  <TextField select value={year} onChange={(e) => {setYear(e.target.value);refetch();}}>
+                    {years.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                  <Input placeholder='category'>
+                  </Input>
                 </Grid>
               </Grid>
             </Grid>

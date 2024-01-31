@@ -18,9 +18,21 @@ public class ExpensesController(IExpensService expensService) : ControllerBase
     }
     
     [HttpGet]
-    public async Task<IActionResult> GetExpenses(string email, string type, string? category = null)
-    {
-        return category is null ? Ok(await expensService.GetExpense(email,type)) : Ok(await expensService.GetExpense(email,type,category));
+    public async Task<IActionResult> GetExpenses(string email, string type, int? month = null, int? year = null, string? category = null)
+    { 
+        return category is null ? Ok(await expensService.GetExpense(email,type)) : Ok(await expensService.GetExpense(email,type,category, month, year));
     }
-    
+
+    [HttpGet("categories")]
+    public async Task<IActionResult> GetCategories()
+    {
+        return Ok(await expensService.GetCategories());
+    }
+
+    [HttpGet("data")]
+    public async Task<IActionResult> Data(string email)
+    {
+        return Ok(await expensService.GetChartData(email));
+    }
+
 }

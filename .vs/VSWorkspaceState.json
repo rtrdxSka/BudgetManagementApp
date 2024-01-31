@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ImprovedBudgetManagment",
+    "\\ImprovedBudgetManagment\\ImprovedBudgetManagment",
+    "\\ImprovedBudgetManagment\\ImprovedBudgetManagment\\Data",
+    "\\ImprovedBudgetManagment\\ImprovedBudgetManagment\\Migrations"
   ],
-  "SelectedNode": "\\BudgetManagment.sln",
+  "SelectedNode": "\\ImprovedBudgetManagment\\ImprovedBudgetManagment\\Data\\AppDbContext.cs",
   "PreviewInSolutionExplorer": false
 }
