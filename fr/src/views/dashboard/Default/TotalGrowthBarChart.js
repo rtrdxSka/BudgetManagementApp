@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 // material-ui
-import { Grid, Input, MenuItem, TextField, Typography } from '@mui/material';
+import { Grid, MenuItem, TextField } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 // third-party
@@ -275,29 +275,9 @@ const TotalGrowthBarChart = () => {
               <Grid container alignItems="center" justifyContent="space-between">
                 <Grid item>
                   <Grid container direction="column" spacing={1}>
-                    <Grid item>
-                      <Typography variant="subtitle2">Total Growth</Typography>
-                    </Grid>
-                    <Grid item>
-                      <Typography variant="h3">$2,324.00</Typography>
-                    </Grid>
                   </Grid>
                 </Grid>
                 <Grid item style = {{display: 'flex', alignItems: 'center', gap: '1rem'}}>
-                  <TextField id="standard-select-currency" select value={value} onChange={(e) => {setValue(e.target.value);refetch();}}>
-                    {status.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                  <TextField select value={month} onChange={(e) => {setMonth(e.target.value);refetch();}}>
-                    {months.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
                   <TextField select value={year} onChange={(e) => {setYear(e.target.value);refetch();}}>
                     {years.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
@@ -305,8 +285,6 @@ const TotalGrowthBarChart = () => {
                       </MenuItem>
                     ))}
                   </TextField>
-                  <Input placeholder='category'>
-                  </Input>
                 </Grid>
               </Grid>
             </Grid>
