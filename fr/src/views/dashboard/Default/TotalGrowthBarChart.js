@@ -19,67 +19,9 @@ import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowth
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-const status = [
-  {
-    value: 'expense',
-    label: 'Expense'
-  },
-  {
-    value: 'income',
-    label: 'Income'
-  }
-];
 
-const months = [
-  {
-    value: '1',
-    label: 'January'
-  },
-  {
-    value: '2',
-    label: 'February'
-  },
-  {
-    value: '3',
-    label: 'March'
-  },
-  {
-    value: '4',
-    label: 'April'
-  },
-  {
-    value: '5',
-    label: 'May'
-  },
-  {
-    value: '6',
-    label: 'June'
-  },
-  {
-    value: '7',
-    label: 'July'
-  },
-  {
-    value: '8',
-    label: 'August'
-  },
-  {
-    value: '9',
-    label: 'September'
-  },
-  {
-    value: '10',
-    label: 'October'
-  },
-  {
-    value: '11',
-    label: 'November'
-  },
-  {
-    value: '12',
-    label: 'December'
-  }
-];
+
+
 
 const years = [
   {
@@ -198,7 +140,9 @@ const TotalGrowthBarChart = () => {
   const [year, setYear] = useState('2024');
   const theme = useTheme();
   const customization = useSelector((state) => state.customization);
-
+  console.log(setValue)
+  console.log(month)
+  console.log(setMonth)
   const { navType } = customization;
   const { primary } = theme.palette.text;
   const darkLight = theme.palette.dark.light;
@@ -301,5 +245,8 @@ const TotalGrowthBarChart = () => {
 TotalGrowthBarChart.propTypes = {
   isLoading: PropTypes.bool
 };
+
+
+
 
 export default TotalGrowthBarChart;
